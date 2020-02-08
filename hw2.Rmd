@@ -1,0 +1,83 @@
+---
+title: "ds202 hw2"
+author: "Stephanie Femrite"
+date: "2/6/2020"
+output: html_document
+---
+#1
+
+temp <- c(24,15)
+cel <- ((temp-32)*5)/9
+print(cel)
+
+#2
+vec200 <- rep(c(1,3), length.out=200)
+print(vec200)
+
+#3
+floor(sqrt(2001))
+
+
+install.packages("ggplot2")
+library(ggplot2)
+
+library(ggplot2)
+mpg
+
+#1
+top <- mpg[order(hwy),]
+top3 <- head(top,3)
+print(top3)
+
+#2
+
+class <- mpg$class
+class1 <-mpg[class == 'compact',]
+numCompact <- length(unique(class1))
+print(numCompact)
+
+#3
+
+names(mpg)
+plot(mpg$cty, mpg$hwy, main = 'City and Highway', xlab = 'City', ylab= 'Highway')
+
+## I would guess this scatterplot doesn't have very many points on it because there are is a lot of repeating data in this dataframe and this is only plotting unique points.
+
+#4
+
+cityCars1999 <- mpg$cty[mpg$year == 1999]
+cityCars2008 <- mpg$cty[mpg$year == 2008]
+hwyCars1999 <- mpg$hwy[mpg$year == 1999]
+hwyCars2008 <- mpg$hwy[mpg$year == 2008]
+boxplot(cityCars1999,cityCars2008, main = "Fuel Comparisons between Cars in 1999 and 2008 (City)", xlab = 'Year (1 is 1999 and 2 is 2008)', ylab = 'Miles per Gallon in the City')
+
+boxplot(hwyCars1999,hwyCars2008, main = 'Fuel Comparisons between Cars in 1999 and 2008 (Highway)', xlab = '1999 and 2008', ylab = 'Miles per Gallon on the Highway')
+
+min(cityCars1999) 
+quantile(cityCars1999, 0.25) 
+mean(cityCars1999) 
+quantile(cityCars1999,0.75)
+max(cityCars1999)
+
+min(cityCars2008) 
+quantile(cityCars2008,0.25) 
+mean(cityCars2008) 
+quantile(cityCars2008,0.75) 
+max(cityCars2008)
+
+min(hwyCars1999) 
+quantile(hwyCars1999,0.25) 
+mean(hwyCars1999) 
+quantile(hwyCars1999,0.75) 
+max(hwyCars1999)
+
+min(hwyCars2008) 
+quantile(hwyCars2008,0.25) 
+mean(hwyCars2008) 
+quantile(hwyCars2008,0.75)
+max(hwyCars2008)
+
+# It looks like the cars from 2008 had a larger spread for city driving than the cars in 1999. Their medians were about the same, but the cars from 1999 had at least two outliers that were above the 2008 cars' max number. The 1999 cars also had a higher minimum number than the cars from 2008. I would say for city driving, overall, the cars from 1999 were more fuel efficient.
+
+# For highway driving, it looks like the cars from 1999 still have a higher minimum number than the cars from 2008. However, it looks like most of the data falls into the first quartile, while the 2008 are more evenly distributed. While 2008 has a lower minimum number, it also has a higher maximum number with no outliers. And the mean looks to be about the same for both, but that could be because of the outliers for 1999. For highway driving, I would have to say that the 2008 cars are probably the more fuel efficient cars.
+
